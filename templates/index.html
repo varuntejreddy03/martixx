@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrix Solver</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4 text-primary">Matrix Operations</h1>
+        <form id="matrix-form" method="POST" action="/solve">
+            <div class="form-group">
+                <label for="matrix" class="text-success">Enter Matrix (comma-separated, rows on new lines):</label>
+                <textarea id="matrix" name="matrix" rows="5" class="form-control" placeholder="e.g., 1, 2, 3&#10;4, 5, 6&#10;7, 8, 9"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="operation" class="text-success">Choose Operation:</label>
+                <select id="operation" name="operation" class="form-control">
+                    <option value="rank">Find Rank</option>
+                    <option value="determinant">Find Determinant</option>
+                    <option value="eigen">Find Eigenvalues</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-warning btn-block">Calculate</button>
+        </form>
+
+        <div id="result" class="mt-4">
+            {% if result %}
+            <h2 class="text-danger">Result:</h2>
+            <pre class="bg-light p-3 rounded">{{ result }}</pre>
+            {% endif %}
+        </div>
+
+        <!-- Personal Information Section -->
+        <div class="mt-4 text-center" style="animation: fadeIn 0.5s forwards;">
+            <h2 class="text-primary">About Me</h2>
+            <p class="text-secondary">My name is Varshith Reddy, a student at KMCE.</p>
+            <p class="text-secondary">This application is designed for matrix operations.</p>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS (Optional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <footer class="bg-dark text-white text-center py-3 mt-4">
+        <p class="mb-0">© 2024 Varshith Reddy. All rights reserved.</p>
+    </footer>
+</body>
+</html>
